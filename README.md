@@ -14,10 +14,6 @@ Scipy --- 1.8.0
 
 Sklearn --- 1.0.2
 
-##Datasets
- 
-The data folder contains gene expression matrices and real labels for 15 public datasets.
-
 ##Example
 
-The scASGC.py is an example of the dataset Deng.
+The scASGC.py is an example of the dataset Biase.
