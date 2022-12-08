@@ -13,17 +13,17 @@ dim = 200
 
 start = time()
 # read data
-data = pd.read_csv('data/deng.csv',header=None)
+data = pd.read_csv('data/Biase.csv',header=None)
 data = Proprecess(data)
 data = normalization(data)
 features = data
 
 # read label
-y = pd.read_csv('data/deng_true_labs.csv',header=None,low_memory=False)
+y = pd.read_csv('data/Biase_true_labs.csv',header=None,low_memory=False)
 y = np.array(y)
 y = y.ravel()
 # print(y.shape)
-n_clusters = 6
+n_clusters = 3
 
 N = data.shape[0]
 avg_N = N // n_clusters
