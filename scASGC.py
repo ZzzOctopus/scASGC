@@ -6,23 +6,26 @@ from numpy import zeros
 from sklearn import metrics
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-from utils import normalization, Proprecess, getGraph, preprocess_adj, performance
+from utils import normalization, Preprocess, getGraph, preprocess_adj, performance
 
+# parameter setting
 max_iter = 50
 dim = 200
 
 start = time()
 # read data
-data = pd.read_csv('data/Biase.csv',header=None)
-data = Proprecess(data)
+data = pd.read_csv('data/Kolodziejczyk.csv',header=None)
+# data preprocessing
+data = Preprocess(data)
 data = normalization(data)
 features = data
 
-# read label
-y = pd.read_csv('data/Biase_true_labs.csv',header=None,low_memory=False)
+# read true label
+y = pd.read_csv('data/Kolodziejczyk_true_labs.csv',header=None,low_memory=False)
 y = np.array(y)
 y = y.ravel()
 # print(y.shape)
+# n_cluster is the number of clusters
 n_clusters = 3
 
 N = data.shape[0]
@@ -32,9 +35,10 @@ K = min(K, 10)
 K = max(K, 3)
 print('K',K)
 
+# graph construction
 adj,W_NE = getGraph(data,K)
 
-# Dimension Reduction
+# dimension reduction
 if features.shape[0] > dim and features.shape[1] > dim:
     pca = PCA(n_components=dim)
     features = pca.fit_transform(features)
@@ -91,8 +95,7 @@ while 1:
 
     print('power: {}'.format(power),
           'dbimean:{}'.format(dbimean),
-          'nmi_mean: {}'.format(nmi_means),
-          'silhou_mean:{}'.format(sil_means))
+          'nmi_mean: {}'.format(nmi_means))
     if DBI_list[tt] > DBI_list[tt - 1] or tt > max_iter:
         print('bestpower: {}'.format(tt - 1))
         pre_labels = label[tt-1]
