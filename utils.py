@@ -9,7 +9,7 @@ import pandas as pd
 import scipy.sparse as sp
 from sklearn import metrics
 
-def Proprecess(data):
+def Preprocess(data):
     # data preprocessing, including the removal of genes expressed in less than 95% of cells and logarithm
     X = np.array(data)
     print('raw shape:',X.shape)
@@ -96,9 +96,9 @@ def getGraph(X,K):
     co_matrix = np.corrcoef(X)
     X = normalization(X)
     in_matrix = np.corrcoef(X)
-    # pd.DataFrame(co_matrix).to_csv('ting_CO.csv', index=False, header=None)
+    # pd.DataFrame(co_matrix).to_csv('Kolod_CO.csv', index=False, header=None)
     NE_matrix = getNeMatrix(in_matrix)
-    # pd.DataFrame(NE_matrix).to_csv('ting_NE.csv', index=False, header=None)
+    # pd.DataFrame(NE_matrix).to_csv('Kolod_NE.csv', index=False, header=None)
 
     data = NE_matrix.reshape(-1)
     data = np.sort(data)
