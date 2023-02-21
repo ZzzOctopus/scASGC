@@ -14,7 +14,7 @@ Scipy --- 1.8.0
 
 Sklearn --- 1.0.2
 
-##Datasets
+## Datasets
 
 Deng, Yan, Leng, Darmanis were obtained from https://sourceforge.net/projects/transcriptomeassembly/files/SC3-e/Data/
 
@@ -28,7 +28,7 @@ Klein and PBMC4k were obtained from https://github.com/ttgump/scDeepCluster/tree
 
 Chen was obtained from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE87544.
 
-##Example
+## Example
 
 The scASGC.py is an example of the dataset Kolodziejczyk.
 
@@ -40,5 +40,5 @@ Output: pre_labels, NMI, ARI, homogeneity and completeness.
 This is the code for the comparison method pca+kmeans.
 
 
-##The specifications of the computer used for data analysis and comparison
+## The specifications of the computer used for data analysis and comparison
 The dataset chen was run on a Tesla V100 and all other datasets were run on a personal computer (i5-8250U,64bit,windows10).
